@@ -2,7 +2,7 @@
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import Lottie from "lottie-react";
 import animation from "@/assets/animation.json";
-import AnimatedButton from "../../animationButton";
+import AnimatedButton from "../../animationButton/animationButton";
 import Link from "next/link";
 const HeroSection = () => {
   const onButtonClick = () => {
