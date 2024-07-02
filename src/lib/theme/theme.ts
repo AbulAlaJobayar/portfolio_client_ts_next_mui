@@ -4,16 +4,16 @@ import { createTheme } from '@mui/material';
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#4A90E2",  // Sky Blue
+      main: "#FF6900", 
     },
     secondary: {
-      main: "#F5A623",  // Vivid Orange
+      main: "#FDF8F7",
     },
     background: {
       default: "#F9FAFB",  // Light Gray
     },
     text: {
-      primary: "#333333",  // Dark Gray
+      primary: "#15295F",  
       secondary: "#111111",
     },
   },
@@ -21,6 +21,7 @@ export const theme = createTheme({
     MuiButton: {
       defaultProps: {
         variant: "contained",
+       
       },
       styleOverrides: {
         root: {
