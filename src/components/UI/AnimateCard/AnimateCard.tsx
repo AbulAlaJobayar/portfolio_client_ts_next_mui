@@ -1,18 +1,26 @@
-"use client"
-import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button } from '@mui/material';
-import { motion } from 'framer-motion';
-import { styled } from '@mui/system';
-import AnimatedButton from '../animationButton/animationButton';
+"use client";
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  Box,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import { styled } from "@mui/system";
+import AnimatedButton from "../animationButton/animationButton";
+import Link from "next/link";
 
 interface AnimatedCardProps {
   title: string;
   description: string;
   image: any;
-  id?:string;
+  id: string;
 }
 
-const ImageContainer = styled('div')`
+const ImageContainer = styled("div")`
   position: relative;
   overflow: hidden;
 `;
@@ -32,26 +40,27 @@ const BlurredImage = styled(motion.img)`
   object-fit: cover;
 `;
 
-const AnimatedCard: React.FC<AnimatedCardProps> = ({ title, description, image,id }) => {
+const AnimatedCard: React.FC<AnimatedCardProps> = ({
+  title,
+  description,
+  image,
+  id,
+}) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      style={{ position: 'relative', overflow: 'hidden' }}
+      style={{ position: "relative", overflow: "hidden" }}
     >
       <Card sx={{ maxWidth: 345, m: 2 }}>
         <ImageContainer>
           <BlurredImage
             src={image}
             alt={title}
-            whileHover={{ filter: 'blur(4px)' }}
+            whileHover={{ filter: "blur(4px)" }}
           />
-          <OverlayButton
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-          >
-            <AnimatedButton variant={"contained"} >Details</AnimatedButton>
-            
+          <OverlayButton initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}>
+          <Link href={`/project/${id}`}>  <AnimatedButton variant={"contained"}> <Box component={"span"} style={{color:"#FFFFFF"}}>Details</Box></AnimatedButton></Link>
           </OverlayButton>
         </ImageContainer>
         <CardContent>

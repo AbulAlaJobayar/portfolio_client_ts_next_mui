@@ -46,7 +46,6 @@ const Navbar = () => {
       position="static"
       sx={{
         bgcolor: "secondary.main",
-        boxShadow: "0 10px 15px rgba(0, 0, 0, 1)",
         borderBottom: "2px solid #F5F5F5",
       }}
     >

@@ -4,7 +4,6 @@ import project from "@/services/action/projectData";
 
 const ProjectSection = async () => {
   const projects = await project();
-  console.log(projects);
   return (
     <div id="#projects" style={{ background: "#FDF8F7" }}>
       <Container>
@@ -25,7 +24,8 @@ const ProjectSection = async () => {
             WORK I HAVE DONE
           </Typography>
         </Stack>
-        <Box>
+        <Box 
+        pb={5}>
           <Grid container spacing={4}>
             {projects.data.map((project: any) => (
               <Grid key={project?.id} item xs={12} sm={6} md={4}>
@@ -33,6 +33,7 @@ const ProjectSection = async () => {
                   title={project?.title}
                   description={`${project?.description.slice(0, 100)}...`}
                   image={project?.photo}
+                  id={project?.id}
                 />
               </Grid>
             ))}

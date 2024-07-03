@@ -1,7 +1,12 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import BlogCard from "./BlogCard/BlogCard";
 
-const BlogSection = () => {
+const BlogSection = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/blog`, {
+    cache: "no-store",
+  });
+  const Blogs = await res.json();
+  console.log(Blogs);
   return (
     <div id="#blog">
       <Container>
@@ -23,7 +28,16 @@ const BlogSection = () => {
           </Typography>
         </Stack>
         <Box>
-          <BlogCard />
+          <Grid container spacing={4}>
+            {Blogs?.data.map((blog: any) => (
+              <Grid item key={blog?.id} xs={12} sm={6} md={4}>
+                <BlogCard blog={blog} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "center", py: 5 }}>
+          <Button sx={{ mx: "auto", color: "white" }}>View More</Button>
         </Box>
       </Container>
     </div>
