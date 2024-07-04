@@ -1,12 +1,21 @@
+import { Stack, Typography } from "@mui/material";
 
-
-
-const page = () => {
+const DashboardPage = () => {
   return (
-    <div>
-      <h1>This is page component</h1>
-  </div>
+    <Stack
+      direction={"row"}
+      sx={{
+        display:'flex',
+        textAlign: "center",
+        maxHeight: "100vh",
+        justifyContent: "center",
+        alignItems: "center",
+       fontWeight:'bold'
+      }}
+    >
+      <Typography variant="h2" >Welcome To Your Dashboard</Typography>
+    </Stack>
   );
 };
 
-export default page;
+export default DashboardPage;

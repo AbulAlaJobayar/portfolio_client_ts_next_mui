@@ -37,7 +37,7 @@ const ContactSection = () => {
         "I-WH7Asd4VtCvRsfg"
       )
       .then((result) => {
-        console.log(result.text);
+      
         toast.success("Message Send Successfully.");
       })
       .catch((error) => {

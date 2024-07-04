@@ -13,7 +13,7 @@ export const getUserInfo = () => {
   const authToken = getFromLocalStorage(authKey);
   if (authToken) {
     const decoded: any = decodedToken(authToken);
-    console.log(decoded);
+  
     return {
       ...decoded,
       role: decoded?.role.toLowerCase(),
@@ -23,7 +23,7 @@ export const getUserInfo = () => {
 
 export const isLoggedIn = () => {
   const authToken = getFromLocalStorage(authKey);
-  console.log("hello token",authToken)
+  
   if (authToken) {
     return !!authToken;
   }

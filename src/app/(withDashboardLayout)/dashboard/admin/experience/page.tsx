@@ -17,14 +17,14 @@ interface IFormInput {
   company: string;
   position: string;
   startDate: string;
-  endDate:string;
-  description:string;
+  endDate: string;
+  description: string;
 }
 
 const ExperiencePage = () => {
   const user = getUserInfo();
   const handleUpdate = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating Contact", {
+    const toastId = toast.loading("Creating Experience", {
       position: "top-center",
       style: {
         color: "#8ed1a3",
@@ -34,7 +34,13 @@ const ExperiencePage = () => {
     try {
       const res = await postExperience({ ...data });
       if (res?.data?.id) {
-        toast.success("Created Contact", {
+        toast.success("Created Experience", {
+          id: toastId,
+          duration: 2000,
+          position: "top-center",
+        });
+      } else {
+        toast.warning("something went wrong", {
           id: toastId,
           duration: 2000,
           position: "top-center",
@@ -65,9 +71,9 @@ const ExperiencePage = () => {
               defaultValues={{
                 company: "",
                 position: "",
-                startDate: "" ,
-                endDate:"",
-                description:"",
+                startDate: undefined,
+                endDate: undefined,
+                description: "",
                 userId: user?.id,
               }}
             >
@@ -89,10 +95,10 @@ const ExperiencePage = () => {
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <PFDatePicker name='startDate' label="Start Date" />
+                  <PFDatePicker name="startDate" label="Start Date" />
                 </Grid>
                 <Grid item md={6}>
-                  <PFDatePicker name='endDate' label="End Date" />
+                  <PFDatePicker name="endDate" label="End Date" />
                 </Grid>
                 <Grid item md={6}>
                   <PFInput
@@ -122,4 +128,3 @@ const ExperiencePage = () => {
 };
 
 export default ExperiencePage;
-

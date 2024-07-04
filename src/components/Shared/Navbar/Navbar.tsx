@@ -15,18 +15,17 @@ import animationData from "@/assets/Animation - 1719823055645.json";
 import { Stack } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Link as ScrollLink } from "react-scroll";
 const variants = {
   open: { opacity: 1, x: 1 },
   closed: { opacity: 1, x: "10%" },
 };
 const pages = [
-  { name: "Home", link: "/" },
-  { name: "About", link: "#about" },
-  { name: "Projects", link: "#projects" },
-  { name: "Blog", link: "#blog" },
-  { name: "Contact", link: "#contact" },
-  { name: "Login", link: "/login" },
+  { name: "Home", link:"/" },
+  { name: "About", link:"/about" },
+  { name: "Projects", link:"/projects" },
+  { name: "Blog", link:"/blog" },
+  { name: "Contact", link:"/contact" },
+  { name: "Login", link:"/login" },
 ];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -81,18 +80,16 @@ const Navbar = () => {
           {/* Nav content */}
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map((page, i) => (
-              <ScrollLink
-                to={page.link}
+              <Link
                 key={i}
-                smooth={true}
-                duration={500}
+                href={page.link}
                 style={{
                   textAlign: "center",
                   color: "text.primary",
                   textDecoration: "none",
                   fontWeight: 600,
                   marginLeft: "24px",
-                  cursor: "pointer"
+                  
                 }}
               >
                 <Box
@@ -107,7 +104,8 @@ const Navbar = () => {
                 >
                   {page.name}
                 </Box>
-              </ScrollLink>
+              </Link>
+             
             ))}
           </Box>
 

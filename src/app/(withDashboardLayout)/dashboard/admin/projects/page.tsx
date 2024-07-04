@@ -23,7 +23,7 @@ interface IFormInput {
 const ProjectPage = () => {
   const user = getUserInfo();
   const handleUpdate = async (data: FieldValues) => {
-    const toastId = toast.loading("Creating Contact", {
+    const toastId = toast.loading("Creating Project", {
       position: "top-center",
       style: {
         color: "#8ed1a3",
@@ -34,7 +34,7 @@ const ProjectPage = () => {
       const image = await imageHosting(data.photo);
       const res = await postProject({ ...data, photo: image });
       if (res?.data?.id) {
-        toast.success("Created Contact", {
+        toast.success("Created Project", {
           id: toastId,
           duration: 2000,
           position: "top-center",

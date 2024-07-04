@@ -1,6 +1,6 @@
 
 export const imageHosting = async (image: any) => {
-  console.log(image)
+
     try {
       const formData = new FormData();
       formData.append("image", image);

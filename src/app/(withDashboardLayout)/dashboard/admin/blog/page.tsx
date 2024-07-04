@@ -34,7 +34,7 @@ const BlogPage = () => {
     });
     try {
       const image = await imageHosting(data.photo);
-      console.log(image)
+      
       const res = await postBlog({ ...data, photo: image });
       if (res?.data?.id) {
         toast.success("Created Project", {

@@ -60,7 +60,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
             whileHover={{ filter: "blur(4px)" }}
           />
           <OverlayButton initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}>
-          <Link href={`/project/${id}`}>  <AnimatedButton variant={"contained"}> <Box component={"span"} style={{color:"#FFFFFF"}}>Details</Box></AnimatedButton></Link>
+          <Link href={`/projects/${id}`}>  <AnimatedButton variant={"contained"}> <Box component={"span"} style={{color:"#FFFFFF"}}>Details</Box></AnimatedButton></Link>
           </OverlayButton>
         </ImageContainer>
         <CardContent>
