@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const ComingSoon = () => {
   // Set your target launch date here
-  const targetDate = new Date('2024-07-31T00:00:00');
+  const targetDate = new Date('2025-07-31T00:00:00');
 
   return (
     <Container maxWidth="md" sx={{ textAlign: 'center', mt: 8 }}>

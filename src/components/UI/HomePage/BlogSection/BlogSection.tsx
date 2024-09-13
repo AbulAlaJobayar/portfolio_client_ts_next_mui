@@ -9,6 +9,7 @@ const BlogSection = async () => {
   const Blogs = await res.json();
 
   return (
+    <Box>
     <Container>
       <Stack
         direction={"column"}
@@ -43,6 +44,7 @@ const BlogSection = async () => {
         </Link>
       </Box>
     </Container>
+    </Box>
   );
 };
 

@@ -19,7 +19,7 @@ const HeroSection = () => {
   return (
     <Box sx={{ background: "#fdf8f7", pt: 2, pb: 2 }}>
       <Container>
-        <div className=" sm:flex justify-between items-center md:h-[calc(100vh-70px)] text-center md:text-left">
+        <div className=" sm:flex justify-between items-center md:h-[calc(100vh-70px)] text-center md:text-left max-h-[900px]">
           <div className="w-full md:1/2">
             <div className="">
               <h4 className=" text-2xl md:text-3xl xl:text-4xl font-bold  text-[#ff6900] pt-10  pb-2 ">

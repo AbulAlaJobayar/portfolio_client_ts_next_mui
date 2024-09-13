@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const AboutSection = () => {
   return (
-    <Box component={"div"} id="#about">
+    <Box >
       <Container>
         <Box>
           <Grid container spacing={4} alignItems="flex-start">
