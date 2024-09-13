@@ -29,7 +29,7 @@ const BlogSection = async () => {
       </Stack>
       <Box>
         <Grid container spacing={4}>
-          {Blogs?.data.slice(0, 3).map((blog: any) => (
+          {Blogs?.data?.slice(0, 3).map((blog: any) => (
             <Grid item key={blog?.id} xs={12} sm={6} md={4}>
               <BlogCard blog={blog} />
             </Grid>

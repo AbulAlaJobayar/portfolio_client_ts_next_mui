@@ -27,7 +27,7 @@ const ProjectSection = async () => {
         <Box 
         pb={5}>
           <Grid container spacing={4}>
-            {projects.data.map((project: any) => (
+            {projects?.data?.map((project: any) => (
               <Grid key={project?.id} item xs={12} sm={6} md={4}>
                 <AnimatedCard
                   title={project?.title}
