@@ -9,8 +9,8 @@ const AboutSection = () => {
       <Container>
         <Box>
           <Grid container spacing={4} alignItems="flex-start">
-            <Grid item xs={12} md={6}>
-              <Image src={image} alt="about" height={"500"} width={"500"} />
+            <Grid item sm={12} md={6} sx={{marginTop:{sx:'0px',md:12}}}>
+              <Image src={image} alt="about" height={"400"} width={"400"} />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography variant="h4" marginBottom={1} fontWeight={600}>
