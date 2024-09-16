@@ -11,8 +11,8 @@ type TProjectDetailsProps ={
   photo: string;
   title: string;
   description: string;
-  githubClientLink: string;
-  githubServerLink: string;
+  githubClient: string;
+  githubServer: string;
   liveLink: string;
 }
 
@@ -20,7 +20,7 @@ const ProjectDetails = async({params}:{params:any}) => {
   const res= await fetch(`${process.env.NEXT_PUBLIC_URL}/single_project/${params.id}`)
   const project=await res.json() as TProject
  
-
+console.log(project)
   return (
     <Card>
       <CardMedia
@@ -37,12 +37,12 @@ const ProjectDetails = async({params}:{params:any}) => {
           {project?.data?.description}
         </Typography>
         <Box mt={2}>
-          <Link href={project?.data?.githubClientLink} target="_blank" rel="noopener noreferrer">
+          <Link href={project?.data?.githubClient} target="_blank" rel="noopener noreferrer">
             <Button variant="outlined" color="primary" sx={{ mr: 2 }}>
               GitHub Client
             </Button>
           </Link>
-          <Link href={project?.data?.githubServerLink} target="_blank" rel="noopener noreferrer">
+          <Link href={project?.data?.githubServer} target="_blank" rel="noopener noreferrer">
             <Button variant="outlined"  sx={{ mr: 2 }}>
               GitHub Server
             </Button>
