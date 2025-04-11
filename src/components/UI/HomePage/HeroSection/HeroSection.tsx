@@ -6,12 +6,12 @@ import AnimatedButton from "../../animationButton/animationButton";
 import Link from "next/link";
 const HeroSection = () => {
   const onButtonClick = () => {
-    fetch("resume.pdf").then((response) => {
+    fetch("Abul_Ala_Jobayar_Full_stack_Developer.pdf").then((response) => {
       response.blob().then((blob) => {
         const fileURL = window.URL.createObjectURL(blob);
         let alink = document.createElement("a");
         alink.href = fileURL;
-        alink.download = "resume.pdf";
+        alink.download = "Abul_Ala_Jobayar_Full_stack_Developer.pdf";
         alink.click();
       });
     });
