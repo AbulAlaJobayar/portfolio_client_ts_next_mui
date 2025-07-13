@@ -1,17 +1,11 @@
 "use client";
-import React from "react";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  Box,
-} from "@mui/material";
+import React, { useState } from "react";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import { styled } from "@mui/system";
 import AnimatedButton from "../animationButton/animationButton";
 import Link from "next/link";
+import Image from "next/image";
 
 interface AnimatedCardProps {
   title: string;
@@ -33,46 +27,60 @@ const OverlayButton = styled(motion.div)`
   opacity: 0;
   transition: opacity 0.3s ease;
 `;
-
-const BlurredImage = styled(motion.img)`
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-`;
-
 const AnimatedCard: React.FC<AnimatedCardProps> = ({
   title,
   description,
   image,
   id,
 }) => {
+  const [mouseHover, setMouseHover] = useState<Boolean>(false);
+
   return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      style={{ position: "relative", overflow: "hidden" }}
+    <div
+      className="card-wrapper h-[250px] w-[250px] mx-auto"
+      onMouseOver={() => setMouseHover(true)}
+      onMouseLeave={() => setMouseHover(false)}
     >
-      <Card sx={{ maxWidth: 345, m: 2 }}>
-        <ImageContainer>
-          <BlurredImage
-            src={image}
-            alt={title}
-            whileHover={{ filter: "blur(4px)" }}
-          />
-          <OverlayButton initial={{ opacity: 0 }} whileHover={{ opacity: 1 }}>
-          <Link href={`/projects/${id}`}>  <AnimatedButton variant={"contained"}> <Box component={"span"} style={{color:"#FFFFFF"}}>Details</Box></AnimatedButton></Link>
-          </OverlayButton>
-        </ImageContainer>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography>
-        </CardContent>
+      <Card>
+        <div className="card-content flex items-center flex-col bg-white justify-center text-xs shadow-lg">
+          {mouseHover ? (
+            <>
+              <OverlayButton
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="w-full h-full flex items-center justify-center bg-slate-100 backdrop-blur-3xl rounded-[16px]"
+              >
+                <Link href={`/projects/${id}`}>
+                  <AnimatedButton variant={"contained"}>
+                    <Box component={"span"} style={{ color: "#FFFFFF" }}>
+                      Details
+                    </Box>
+                  </AnimatedButton>
+                </Link>
+              </OverlayButton>
+            </>
+          ) : (
+            <div className="max-w-[246px] max-h-[244px] ">
+              <Image
+                src={image}
+                alt={title}
+                width={246}
+                height={140} 
+                
+                className=" overflow-hidden object-cover"
+              />
+
+              <CardContent>
+                <Typography>{title}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {description.split(" ").slice(0, 10).join(" ")}...
+                </Typography>
+              </CardContent>
+            </div>
+          )}
+        </div>
       </Card>
-    </motion.div>
+    </div>
   );
 };
 
