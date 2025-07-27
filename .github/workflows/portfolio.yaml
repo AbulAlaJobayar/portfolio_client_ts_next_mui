@@ -1,0 +1,11 @@
+name: portfolio action
+on: push
+jobs: 
+  My_first_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Print a message
+        run:  echo "this is a message"
+      - name: check listen
+        run: echo "listing hacking"
+  
